@@ -5,7 +5,9 @@ Describe a O(nlogn)-time algorithm that,
     determines whether or not there exist two elements in S
     whose sum is exactly x.
 """
-from Utitilies.utility import binary_search
+import time
+
+from Utitilies.utility import binary_search, get_random_array
 
 
 def exist_elements_with_sum(s, x):
@@ -22,14 +24,23 @@ def exist_elements_with_sum(s, x):
     return found
 
 
-def main():
-    aray = [2, 5, 1, 4]
-    expected_sum = 1
-    exist = exist_elements_with_sum(aray, expected_sum)
+def main(array, expected_sum):
+    start = time.time()
 
-    print(aray)
+    print(array)
     print(expected_sum)
-    print(exist)
+    exist = exist_elements_with_sum(array, expected_sum)
+
+    end = time.time()
+    print('NlogN: %s' % "Found" if exist else "Not found")
+    print('Complete in %s seconds' % (end - start))
+    print()
 
 
-main()
+a = [2, 5, 1, 4]
+main(a, 1)
+main(a, 10)
+
+a = get_random_array(1000, -20, 30)
+main(a, 140)
+main(a, a[0] + a[1])

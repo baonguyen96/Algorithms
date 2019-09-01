@@ -1,8 +1,8 @@
-import unittest
 from Source.Utitilies.utility import binary_search, get_random_array
+from Test.unit_test_template import UnitTestTemplate
 
 
-class UtilityTest(unittest.TestCase):
+class UtilityTest(UnitTestTemplate):
 
     def test_get_random_array(self):
         array = get_random_array(10, -10, 10)

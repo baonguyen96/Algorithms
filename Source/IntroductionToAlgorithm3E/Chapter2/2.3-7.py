@@ -7,7 +7,7 @@ Describe a O(nlogn)-time algorithm that,
 """
 import time
 
-from Utitilies.utility import binary_search, get_random_array
+from Source.Utitilies.utility import binary_search, get_random_array
 
 
 def exist_elements_with_sum(s, x):

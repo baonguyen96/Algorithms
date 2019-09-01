@@ -5,7 +5,7 @@ def get_random_array(size, low, high):
     array = []
 
     for i in range(size):
-        array += [random.randint(low, high + 1)]
+        array += [random.randint(low, high)]
 
     return array
 

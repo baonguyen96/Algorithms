@@ -15,7 +15,7 @@ Maximum subarray problem: https://en.wikipedia.org/wiki/Maximum_subarray_problem
 
 import time
 
-from Utitilies.utility import get_random_array
+from Source.Utitilies.utility import get_random_array
 
 
 def find_max_brute_force(array):

@@ -27,12 +27,13 @@ def get_random_number_advance(a, b):
     if a == b:
         return a
 
-    rand = random.randint(0, 1)
-    mid = (a + b) // 2
+    while a < b:
+        rand = random.randint(0, 1)
+        mid = (a + b) // 2
 
-    if rand == 0:
-        rand = get_random_number_advance(a, mid)
-    else:
-        rand = get_random_number_advance(mid, b)
+        if rand == 0:
+            b = mid
+        else:
+            a = mid
 
-    return rand
+    return a

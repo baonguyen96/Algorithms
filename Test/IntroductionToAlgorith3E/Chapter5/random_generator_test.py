@@ -17,6 +17,13 @@ class MyTestCase(UnitTestTemplate):
         x = get_random_number_advance(1, 2)
         self.assertTrue(1 <= x <= 2)
 
+    def test_get_random_number_small_range(self):
+        x = get_random_number_brute_force(10, 20)
+        self.assertTrue(1 <= x <= 2)
+
+        x = get_random_number_advance(10, 20)
+        self.assertTrue(1 <= x <= 2)
+
     def test_get_random_number_brute_force_huge_range(self):
         x = get_random_number_brute_force(10000000, 1000000000)
         self.assertTrue(10000000 <= x <= 1000000000)

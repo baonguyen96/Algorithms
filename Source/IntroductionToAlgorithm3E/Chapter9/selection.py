@@ -3,9 +3,11 @@ Selection problem:
     Input: A set A of n (distinct) numbers and an integer i , with 1 <= i <= n.
     Output: The element x in A that is larger than exactly i - 1 other elements of A.
 """
+from IntroductionToAlgorithm3E.Chapter7.partition import random_partition
 
 
 def select_brute_force(array, i):
+    # O(n * i) where i is in term of n <->O(n^2)
     if len(array) == 1:
         return array[0]
 
@@ -33,6 +35,7 @@ def select_brute_force(array, i):
 
 
 def select_using_sort(array, i):
+    # utilize merge sort -> O(nlogn)
     if len(array) == 1:
         return array[0]
 
@@ -40,5 +43,41 @@ def select_using_sort(array, i):
     return array[i]
 
 
-def select_linear(array, i):
-    pass
+def select_random_partition(array, i):
+    # O(n)
+    if len(array) == 1:
+        return array[0]
+
+    p = 0
+    r = len(array) - 1
+    result = None
+
+    while p < r:
+        q = random_partition(array, p, r)
+        k = q - p + 1
+
+        if i == k:
+            result = array[q]
+            break
+        elif i < k:
+            r = q - 1
+        else:
+            p = q + 1
+            i = i - k
+
+    return result
+
+
+def _select_random_partition(array, p, r, i):
+    if p == r:
+        return array[p]
+
+    q = random_partition(array, p, r)
+    k = q - p + 1
+
+    if i == k:
+        return array[q]
+    elif i < k:
+        return _select_random_partition(array, p, q - 1, i)
+    else:
+        return _select_random_partition(array, q + 1, r, i - k)

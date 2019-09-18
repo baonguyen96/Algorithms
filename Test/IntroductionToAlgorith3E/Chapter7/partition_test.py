@@ -3,6 +3,12 @@ from Test.unit_test_template import UnitTestTemplate
 
 
 class PartitionTest(UnitTestTemplate):
+    def test_parititon_single(self):
+        array = [1]
+        pivot = partition(array, 0, 0)
+        self.assertEqual([1], array)
+        self.assertTrue(0, pivot)
+
     def test_parititon(self):
         array = [2, 8, 7, 1, 3, 5, 6, 4]
         pivot = partition(array)

@@ -7,7 +7,7 @@ from IntroductionToAlgorithm3E.Chapter7.partition import random_partition
 
 
 def select_brute_force(array, i):
-    # O(n * i) where i is in term of n <->O(n^2)
+    # O(n * i) where i is in term of n <-> O(n^2)
     if len(array) == 1:
         return array[0]
 
@@ -68,7 +68,7 @@ def select_random_partition(array, i):
     return result
 
 
-def _select_random_partition(array, p, r, i):
+def select_random_partition_recursion(array, p, r, i):
     if p == r:
         return array[p]
 
@@ -78,6 +78,6 @@ def _select_random_partition(array, p, r, i):
     if i == k:
         return array[q]
     elif i < k:
-        return _select_random_partition(array, p, q - 1, i)
+        return select_random_partition_recursion(array, p, q - 1, i)
     else:
-        return _select_random_partition(array, q + 1, r, i - k)
+        return select_random_partition_recursion(array, q + 1, r, i - k)

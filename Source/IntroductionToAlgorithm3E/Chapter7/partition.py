@@ -22,5 +22,5 @@ def random_partition(array, low=None, high=None):
         return random_partition(array, 0, len(array) - 1)
     else:
         i = random.randint(low, high)
-        array[high] = array[i]
+        array[i], array[high] = array[high], array[i]
         return partition(array, low, high)

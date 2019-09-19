@@ -14,3 +14,9 @@ class PartitionTest(UnitTestTemplate):
         pivot = partition(array)
         self.assertEqual([2, 1, 3, 4, 7, 5, 6, 8], array)
         self.assertTrue(4, pivot)
+
+        pv_index = array.index(pivot)
+        for i in range(pv_index):
+            self.assertTrue(array[i] < pv_index)
+        for i in range(pv_index + 1, len(array)):
+            self.assertTrue(array[i] > pv_index)

@@ -51,7 +51,7 @@ class EuclideanGeometryTest(UnitTestTemplate):
 
     def test_is_same_point_different_x(self):
         point_a = [0, 0]
-        point_b = [1, 0]
+        point_b = [-1, 0]
         self.assertFalse(is_same_point(point_a, point_b))
 
     def test_is_same_point_different_y(self):

@@ -4,7 +4,7 @@ Problem 5.1-2
 Describe an implementation of the procedure
     RANDOM(a,b) that only makes calls to RANDOM(0,1).
     What is the expected running time of your procedure,
-    as a function of aa and bb?
+    as a function of a and b?
 """
 
 import random

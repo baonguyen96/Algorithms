@@ -3,7 +3,7 @@ Selection problem:
     Input: A set A of n (distinct) numbers and an integer i , with 1 <= i <= n.
     Output: The element x in A that is larger than exactly i - 1 other elements of A.
 """
-from IntroductionToAlgorithm3E.Chapter7.partition import random_partition
+from IntroductionToAlgorithm3E.Chapter7.partition import random_partition, partition
 
 
 def select_brute_force(array, i):
@@ -43,41 +43,43 @@ def select_using_sort(array, i):
     return array[i]
 
 
-def select_random_partition(array, i):
+def select_partition(array, i):
     # O(n)
     if len(array) == 1:
         return array[0]
 
-    p = 0
-    r = len(array) - 1
+    left_index = 0
+    right_index = len(array) - 1
     result = None
+    i += 1
 
-    while p < r:
-        q = random_partition(array, p, r)
-        k = q - p + 1
+    while left_index <= right_index:
+        pivot_index = random_partition(array, left_index, right_index)
+        k = pivot_index - left_index + 1
 
         if i == k:
-            result = array[q]
+            result = array[pivot_index]
             break
         elif i < k:
-            r = q - 1
+            right_index = pivot_index - 1
         else:
-            p = q + 1
+            left_index = pivot_index + 1
             i = i - k
 
     return result
 
 
-def select_random_partition_recursion(array, p, r, i):
+def select_random_partition_recursive(array, p, r, i):
     if p == r:
         return array[p]
 
+    i += 1
     q = random_partition(array, p, r)
     k = q - p + 1
 
     if i == k:
         return array[q]
     elif i < k:
-        return select_random_partition_recursion(array, p, q - 1, i)
+        return select_random_partition_recursive(array, p, q - 1, i)
     else:
-        return select_random_partition_recursion(array, q + 1, r, i - k)
+        return select_random_partition_recursive(array, q + 1, r, i - k)

@@ -1,6 +1,7 @@
 import math
 import operator
 import random
+import statistics
 
 from IntroductionToAlgorithm3E.Chapter5.random_generator import get_random_number_advance
 from IntroductionToAlgorithm3E.Chapter7.partition import random_partition, partition
@@ -42,6 +43,9 @@ def get_partition():
 
 
 def test_median():
+    a = list(range(10))
+    print(statistics.median(a))
+
     a = [0.1, 0.35, 0.05, 0.1, 0.15, 0.05, 0.2]
     b = list(set(a))
     print('b = ', *b, sep=',')
@@ -84,7 +88,7 @@ def sort_2d_array():
 
 
 def main():
-    get_random_2d_array()
+    test_median()
 
 
 if __name__ == '__main__':

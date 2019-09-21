@@ -19,10 +19,10 @@ class MyTestCase(UnitTestTemplate):
 
     def test_get_random_number_small_range(self):
         x = get_random_number_brute_force(10, 20)
-        self.assertTrue(1 <= x <= 2)
+        self.assertTrue(10 <= x <= 20)
 
         x = get_random_number_advance(10, 20)
-        self.assertTrue(1 <= x <= 2)
+        self.assertTrue(10 <= x <= 20)
 
     def test_get_random_number_brute_force_huge_range(self):
         x = get_random_number_brute_force(10000000, 1000000000)

@@ -42,7 +42,7 @@ def get_partition():
         print(a)
 
 
-def test_median():
+def get_median():
     a = list(range(10))
     print(statistics.median(a))
 
@@ -65,11 +65,13 @@ def test_median():
     print(w)
 
 
-def test_array():
+def get_array():
     a = [1, 2]
     b = a * 3
+    c = [1.5] * 3
     print(a)
     print(b)
+    print(c)
 
 
 def sort_2d_array():
@@ -87,8 +89,22 @@ def sort_2d_array():
     print(a)
 
 
+def get_decimal_places():
+    i = 10
+    decimal_places = str(i)[::-1].find('.')
+    print(decimal_places)
+
+    f1 = 10.0
+    decimal_places = str(f1)[::-1].find('.')
+    print(decimal_places)
+
+    f2 = 10.01
+    decimal_places = str(f2)[::-1].find('.')
+    print(decimal_places)
+
+
 def main():
-    test_median()
+    get_array()
 
 
 if __name__ == '__main__':

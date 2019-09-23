@@ -15,7 +15,7 @@ class QuickSortTest(UnitTestTemplate):
         self.assertEqual([1, 2, 3, 4, 5], array)
 
     def test_quick_sort_random(self):
-        array = list(range(100))
+        array = list(range(1000))
         shuffle(array)
         quick_sort(array)
-        self.assertEqual(list(range(100)), array)
+        self.assertEqual(list(range(1000)), array)

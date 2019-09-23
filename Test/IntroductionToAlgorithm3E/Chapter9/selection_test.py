@@ -1,7 +1,6 @@
 import unittest
 
-from IntroductionToAlgorithm3E.Chapter9.selection import select_using_sort, select_brute_force, select_partition, \
-    select_random_partition_recursive
+from IntroductionToAlgorithm3E.Chapter9.selection import select_using_sort, select_brute_force, select_partition
 from Test.unit_test_template import UnitTestTemplate
 
 
@@ -46,16 +45,6 @@ class SelectionTest(UnitTestTemplate):
 
         array = [2, 1, 3, 5, 4, 6]
         x = select_partition(array, 3)
-        self.assertEqual(4, x)
-
-    @unittest.skip("Algorithm not working")
-    def test_select_partition_recursive_small_list(self):
-        array = [1, 2, 3, 4, 5]
-        x = select_random_partition_recursive(array, 0, 4, 2)
-        self.assertEqual(3, x)
-
-        array = [2, 1, 3, 5, 4]
-        x = select_random_partition_recursive(array, 0, 4, 3)
         self.assertEqual(4, x)
 
     def test_select_brute_force_big_list(self):

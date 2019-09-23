@@ -43,14 +43,20 @@ def select_using_sort(array, i):
     return array[i]
 
 
-def select_partition(array, i):
+def select_partition(array, i, left=None, right=None):
+    result = select_partition_capture_pivot(array, i, left, right)
+    return result[1]
+
+
+def select_partition_capture_pivot(array, i, left=None, right=None):
     # O(n)
     if len(array) == 1:
-        return array[0]
+        return 0, array[0]
 
-    left_index = 0
-    right_index = len(array) - 1
+    left_index = 0 if left is None else left
+    right_index = len(array) - 1 if right is None else right
     result = None
+    pivot_index = None
     i += 1
 
     while left_index <= right_index:
@@ -66,20 +72,4 @@ def select_partition(array, i):
             left_index = pivot_index + 1
             i = i - k
 
-    return result
-
-
-def select_random_partition_recursive(array, p, r, i):
-    if p == r:
-        return array[p]
-
-    i += 1
-    q = random_partition(array, p, r)
-    k = q - p + 1
-
-    if i == k:
-        return array[q]
-    elif i < k:
-        return select_random_partition_recursive(array, p, q - 1, i)
-    else:
-        return select_random_partition_recursive(array, q + 1, r, i - k)
+    return pivot_index, result

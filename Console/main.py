@@ -103,8 +103,21 @@ def get_decimal_places():
     print(decimal_places)
 
 
+def test_array_reference():
+    a = [1, 2, 3]
+    b = a
+
+    print(a)
+    print(b)
+
+    b[0] = 0
+
+    print(a)
+    print(b)
+
+
 def main():
-    get_array()
+    test_array_reference()
 
 
 if __name__ == '__main__':

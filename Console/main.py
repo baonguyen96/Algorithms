@@ -116,8 +116,16 @@ def test_array_reference():
     print(b)
 
 
+def test_aray_contain():
+    a = [[1, 1], [2, 2]]
+    x = [1, 1]
+    y = [1, 0]
+    print(x in a)
+    print(y in a)
+
+
 def main():
-    test_array_reference()
+    test_aray_contain()
 
 
 if __name__ == '__main__':

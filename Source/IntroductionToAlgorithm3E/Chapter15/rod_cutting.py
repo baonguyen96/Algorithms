@@ -59,10 +59,10 @@ def cut_rod_nonrecursive_with_cost(prices, n, cost_per_cut):
     revenues = [0 for i in range(len(prices) + 1)]
 
     for i in range(1, n + 1):
-        revenue = prices[i]
+        revenue = prices[i - 1]
 
-        for j in range(1, i - 1):
-            revenue = max(revenue, prices[j] + revenues[i - j] - cost_per_cut)
+        for j in range(i):
+            revenue = max(revenue, prices[j] + revenues[i - j - 1] - cost_per_cut)
 
         revenues[i] = revenue
 

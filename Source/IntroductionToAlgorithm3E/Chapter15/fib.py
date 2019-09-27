@@ -1,3 +1,10 @@
+"""
+15.1-5
+
+Find Fibonacci sequence
+"""
+
+
 def fib_recursive(n):
     if n == 0 or n == 1:
         return 1
@@ -13,12 +20,9 @@ def fib_loop(n):
     second = 1
     third = first + second
 
-    for i in range(2, n):
+    for i in range(1, n):
         third = first + second
         first = second
         second = third
 
     return third
-
-
-print(fib_loop(4))

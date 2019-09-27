@@ -5,6 +5,7 @@ import statistics
 
 from IntroductionToAlgorithm3E.Chapter5.random_generator import get_random_number_advance
 from IntroductionToAlgorithm3E.Chapter7.partition import random_partition, partition
+from IntroductionToAlgorithm3E.Chapter9.find_quantiles import find_k_quantiles
 
 
 def get_random_number():
@@ -125,7 +126,9 @@ def test_aray_contain():
 
 
 def main():
-    test_aray_contain()
+    array = list(range(10))
+    q = find_k_quantiles(array, 5)
+    print(q)
 
 
 if __name__ == '__main__':

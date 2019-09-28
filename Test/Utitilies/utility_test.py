@@ -18,16 +18,16 @@ class UtilityTest(UnitTestTemplate):
         self.assertEqual(-1, util.binary_search(array, 9))
 
     def test_get_identity_matrix(self):
-        identity_matrix = util.get_identity_matrix(1)
+        identity_matrix = util.get_identity_matrix_with_dimension(1)
         expectected_identity_matrix = [[1]]
         self.assertEqual(expectected_identity_matrix, identity_matrix)
 
-        identity_matrix = util.get_identity_matrix(2)
+        identity_matrix = util.get_identity_matrix_with_dimension(2)
         expectected_identity_matrix = [[1, 0],
                                        [0, 1]]
         self.assertEqual(expectected_identity_matrix, identity_matrix)
 
-        identity_matrix = util.get_identity_matrix(3)
+        identity_matrix = util.get_identity_matrix_with_dimension(3)
         expectected_identity_matrix = [[1, 0, 0],
                                        [0, 1, 0],
                                        [0, 0, 1]]

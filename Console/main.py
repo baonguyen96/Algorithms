@@ -1,11 +1,10 @@
-import math
 import operator
 import random
 import statistics
 
+import IntroductionToAlgorithm3E.Chapter15.matrix_multiplication as mat
 from IntroductionToAlgorithm3E.Chapter5.random_generator import get_random_number_advance
 from IntroductionToAlgorithm3E.Chapter7.partition import random_partition, partition
-from IntroductionToAlgorithm3E.Chapter9.find_quantiles import find_k_quantiles
 
 
 def get_random_number():
@@ -118,17 +117,30 @@ def test_array_reference():
 
 
 def test_aray_contain():
-    a = [[1, 1], [2, 2]]
+    a = [[1, 1], [2, 3]]
     x = [1, 1]
     y = [1, 0]
     print(x in a)
     print(y in a)
+    print(a[1][1])
+
+    dimensions = 3
+    matrix_costs = [[None for c in range(dimensions - 1)] for r in range(dimensions - 1)]
+    print(matrix_costs[1][1])
+
+
+def test_print_optimal_parenthesize():
+    dimensions = [5, 10, 3, 12, 5, 50, 6]
+    matrix_costs, matrix_splits = mat.find_optimal_matrix_chain_order(dimensions)
+    s = mat.get_optimal_chain_as_string(matrix_splits, 0, len(dimensions) - 2)
+    print(s)
 
 
 def main():
-    array = list(range(10))
-    q = find_k_quantiles(array, 5)
-    print(q)
+    test_print_optimal_parenthesize()
+    # print('a', end='')
+    # print('b', end='')
+    # print('c')
 
 
 if __name__ == '__main__':

@@ -41,28 +41,17 @@ def _cut_rod_memoized(prices, n, optimal_prices):
     return revenue
 
 
-def cut_rod_nonrecursive(prices, n):
-    revenues = [0 for i in range(len(prices) + 1)]
-
-    for i in range(1, n + 1):
-        revenue = 0
-
-        for j in range(i):
-            revenue = max(revenue, prices[j] + revenues[i - j - 1])
-
-        revenues[i] = revenue
-
-    return revenues[n]
-
-
-def cut_rod_nonrecursive_with_cost(prices, n, cost_per_cut):
+def cut_rod_nonrecursive(prices, n, cost_per_cut=None):
     revenues = [0 for i in range(len(prices) + 1)]
 
     for i in range(1, n + 1):
         revenue = prices[i - 1]
 
         for j in range(i):
-            revenue = max(revenue, prices[j] + revenues[i - j - 1] - cost_per_cut)
+            if cost_per_cut is None:
+                revenue = max(revenue, prices[j] + revenues[i - j - 1])
+            else:
+                revenue = max(revenue, prices[j] + revenues[i - j - 1] - cost_per_cut)
 
         revenues[i] = revenue
 

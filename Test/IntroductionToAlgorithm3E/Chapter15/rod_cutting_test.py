@@ -39,7 +39,7 @@ class RodCuttingTest(UnitTestTemplate):
         cost_per_cut = 0
         n = 0
         expected_price = 0
-        actual_price = rc.cut_rod_nonrecursive_with_cost(prices, n, cost_per_cut)
+        actual_price = rc.cut_rod_nonrecursive(prices, n, cost_per_cut)
         self.assertEqual(expected_price, actual_price)
 
         n = 6
@@ -49,16 +49,16 @@ class RodCuttingTest(UnitTestTemplate):
 
         n = 10
         expected_price = 30
-        actual_price = rc.cut_rod_nonrecursive_with_cost(prices, n, cost_per_cut)
+        actual_price = rc.cut_rod_nonrecursive(prices, n, cost_per_cut)
         self.assertEqual(expected_price, actual_price)
 
         cost_per_cut = 1
         n = 4
         expected_price = 9
-        actual_price = rc.cut_rod_nonrecursive_with_cost(prices, n, cost_per_cut)
+        actual_price = rc.cut_rod_nonrecursive(prices, n, cost_per_cut)
         self.assertEqual(expected_price, actual_price)
 
         n = 5
         expected_price = 12
-        actual_price = rc.cut_rod_nonrecursive_with_cost(prices, n, cost_per_cut)
+        actual_price = rc.cut_rod_nonrecursive(prices, n, cost_per_cut)
         self.assertEqual(expected_price, actual_price)

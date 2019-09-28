@@ -11,8 +11,8 @@ def cut_rod_brute_force(prices, n):
         return 0
     revenue = - float('inf')
 
-    for i in range(n):
-        revenue = max(revenue, prices[i] + cut_rod_brute_force(prices, n - i))
+    for i in range(1, n + 1):
+        revenue = max(revenue, prices[i - 1] + cut_rod_brute_force(prices, n - i))
 
     return revenue
 
@@ -33,8 +33,8 @@ def _cut_rod_memoized(prices, n, optimal_prices):
         revenue = 0
     else:
         revenue = - float('inf')
-        for i in range(n):
-            revenue = max(revenue, prices[i] + _cut_rod_memoized(prices, n - i, optimal_prices))
+        for i in range(1, n + 1):
+            revenue = max(revenue, prices[i - 1] + _cut_rod_memoized(prices, n - i, optimal_prices))
 
     optimal_prices[n] = revenue
 

@@ -3,7 +3,7 @@ from Test.unit_test_template import UnitTestTemplate
 
 
 class RodCuttingTest(UnitTestTemplate):
-    def test_cut_rod(self):
+    def test_cut_rod_brute_force(self):
         prices = [1, 5, 8, 9, 10, 17, 17, 20, 24, 30]
         n = 4
         expected_price = 10

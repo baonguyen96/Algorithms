@@ -25,3 +25,17 @@ def binary_search(array, element):
             low = mid + 1
 
     return -1
+
+
+def get_identity_matrix(dim):
+    matrix = [[0 for i in range(dim)] for j in range(dim)]
+
+    for i in range(dim):
+        matrix[i][i] = 1
+
+    return matrix
+
+
+def get_default_matrix_with_dimension(rows, columns):
+    matrix = [[0 for c in range(columns)] for r in range(rows)]
+    return matrix

@@ -1,9 +1,34 @@
 import IntroductionToAlgorithm3E.Chapter15.matrix_multiplication as mat
 from Test.unit_test_template import UnitTestTemplate
-import Utitilies.utility as util
 
 
 class MatrixMultiplicationTest(UnitTestTemplate):
+
+    def test_get_identity_matrix(self):
+        identity_matrix = mat.get_identity_matrix_with_dimension(1)
+        expectected_identity_matrix = [[1]]
+        self.assertEqual(expectected_identity_matrix, identity_matrix)
+
+        identity_matrix = mat.get_identity_matrix_with_dimension(2)
+        expectected_identity_matrix = [[1, 0],
+                                       [0, 1]]
+        self.assertEqual(expectected_identity_matrix, identity_matrix)
+
+        identity_matrix = mat.get_identity_matrix_with_dimension(3)
+        expectected_identity_matrix = [[1, 0, 0],
+                                       [0, 1, 0],
+                                       [0, 0, 1]]
+        self.assertEqual(expectected_identity_matrix, identity_matrix)
+
+    def test_get_default_matrix_with_dimension(self):
+        matrix = [[0]]
+        expected_matrix = mat.get_default_matrix_with_dimension(1, 1)
+        self.assertEqual(expected_matrix, matrix)
+
+        matrix = [[0, 0], [0, 0], [0, 0]]
+        expected_matrix = mat.get_default_matrix_with_dimension(3, 2)
+        self.assertEqual(expected_matrix, matrix)
+
     def test_multiply_incompatible(self):
         matrix_a = [[1, 2, 3],
                     [4, 5, 6]]
@@ -37,18 +62,18 @@ class MatrixMultiplicationTest(UnitTestTemplate):
         actual_matrix_d = mat.multiply_n_matrices(matrices)
         self.assertEqual(expected_matrix_d, actual_matrix_d)
 
-        matrices = [util.get_identity_matrix_with_dimension(2),
-                    util.get_identity_matrix_with_dimension(2),
-                    util.get_identity_matrix_with_dimension(3)]
+        matrices = [mat.get_identity_matrix_with_dimension(2),
+                    mat.get_identity_matrix_with_dimension(2),
+                    mat.get_identity_matrix_with_dimension(3)]
         with self.assertRaises(Exception):
             mat.multiply_n_matrices(matrices)
 
     def test_find_optimal_matrix_chain_order(self):
-        matrix_a0 = util.get_default_matrix_with_dimension(5, 5)
-        matrix_a1 = util.get_default_matrix_with_dimension(5, 3)
-        matrix_a2 = util.get_default_matrix_with_dimension(3, 4)
-        matrix_a3 = util.get_default_matrix_with_dimension(4, 2)
-        matrix_a4 = util.get_default_matrix_with_dimension(2, 3)
+        matrix_a0 = mat.get_default_matrix_with_dimension(5, 5)
+        matrix_a1 = mat.get_default_matrix_with_dimension(5, 3)
+        matrix_a2 = mat.get_default_matrix_with_dimension(3, 4)
+        matrix_a3 = mat.get_default_matrix_with_dimension(4, 2)
+        matrix_a4 = mat.get_default_matrix_with_dimension(2, 3)
         matrices = [matrix_a0, matrix_a1, matrix_a2, matrix_a3, matrix_a4]
 
         dimensions = []
@@ -85,3 +110,31 @@ class MatrixMultiplicationTest(UnitTestTemplate):
 
         s = mat.get_optimal_chain_as_string(splits, 0, 4)
         self.assertEqual('((A0(A1(A2A3)))A4)', s)
+
+    def test_find_optimal_matrix_chain_order_single(self):
+        dimensions = [2, 2]
+        matrix_costs, matrix_splits = mat.find_optimal_matrix_chain_order(dimensions)
+        self.assertEqual(1, len(matrix_costs))
+        self.assertEqual(1, len(matrix_costs[0]))
+        self.assertEqual(1, len(matrix_splits))
+        self.assertEqual(1, len(matrix_splits[0]))
+
+        s = mat.get_optimal_chain_as_string(matrix_splits, 0, 0)
+        self.assertEqual('A0', s)
+
+    def test_multiply_n_matrices_large(self):
+        matrices = [mat.get_default_matrix_with_dimension(10, 20),
+                    mat.get_default_matrix_with_dimension(20, 90),
+                    mat.get_default_matrix_with_dimension(90, 100),
+                    mat.get_default_matrix_with_dimension(100, 2),
+                    mat.get_default_matrix_with_dimension(2, 15),
+                    mat.get_default_matrix_with_dimension(15, 2),
+                    mat.get_default_matrix_with_dimension(2, 100)]
+
+        for i in range(100):
+            matrices += [
+                mat.get_identity_matrix_with_dimension(100)]
+
+        result_matrix = mat.multiply_n_matrices(matrices)
+        expected_matrix = mat.get_default_matrix_with_dimension(10, 100)
+        self.assertEqual(expected_matrix, result_matrix)

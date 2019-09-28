@@ -8,6 +8,20 @@ Matrix-chain multiplication problem: given a chain <A1, A2, ..., An> of n matric
 """
 
 
+def get_identity_matrix_with_dimension(dim):
+    matrix = [[0 for i in range(dim)] for j in range(dim)]
+
+    for i in range(dim):
+        matrix[i][i] = 1
+
+    return matrix
+
+
+def get_default_matrix_with_dimension(rows, columns, default_value=0):
+    matrix = [[default_value for c in range(columns)] for r in range(rows)]
+    return matrix
+
+
 def multiply_matrices(matrix_a, matrix_b):
     matrix_a_rows = len(matrix_a)
     matrix_a_cols = len(matrix_a[0])

@@ -98,3 +98,24 @@ def get_optimal_chain_as_string(splits, i, j):
         s += get_optimal_chain_as_string(splits, splits[i][j] + 1, j)
         s += ')'
         return s
+
+
+def multiply_n_matrices_optimally(matrices):
+    dimensions = []
+
+    for matrix in matrices:
+        dimensions += [len(matrix)]
+    dimensions += [len(matrices[len(matrices) - 1][0])]
+
+    matrix_costs, matrix_splits = find_optimal_matrix_chain_order(dimensions)
+    return _multiply_n_matrices_optimally(matrices, matrix_splits, 0, len(matrix_splits) - 1)
+
+
+def _multiply_n_matrices_optimally(matrices, splits, i, j):
+    if i == j:
+        return matrices[i]
+    else:
+        matrix_a = _multiply_n_matrices_optimally(matrices, splits, i, splits[i][j])
+        matrix_b = _multiply_n_matrices_optimally(matrices, splits, splits[i][j] + 1, j)
+        matrix_c = multiply_matrices(matrix_a, matrix_b)
+        return matrix_c

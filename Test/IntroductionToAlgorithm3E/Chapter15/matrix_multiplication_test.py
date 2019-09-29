@@ -29,45 +29,6 @@ class MatrixMultiplicationTest(UnitTestTemplate):
         expected_matrix = mat.get_default_matrix_with_dimension(3, 2)
         self.assertEqual(expected_matrix, matrix)
 
-    def test_multiply_incompatible(self):
-        matrix_a = [[1, 2, 3],
-                    [4, 5, 6]]
-        matrix_b = [[1, 2, 3],
-                    [4, 5, 6]]
-        with self.assertRaises(Exception):
-            mat.multiply_matrices(matrix_a, matrix_b)
-
-    def test_multiply_matrices(self):
-        matrix_a = [[1, 2, 3],
-                    [4, 5, 6]]
-        matrix_b = [[7, 8],
-                    [9, 10],
-                    [11, 12]]
-        expected_matrix_c = [[58, 64],
-                             [139, 154]]
-        actual_matrix_c = mat.multiply_matrices(matrix_a, matrix_b)
-        self.assertEqual(expected_matrix_c, actual_matrix_c)
-
-    def test_multiply_n_matrices(self):
-        matrix_a = [[1, 2, 3],
-                    [4, 5, 6]]
-        matrix_b = [[7, 8],
-                    [9, 10],
-                    [11, 12]]
-        matrix_c = [[1, 0],
-                    [0, 1]]
-        matrices = [matrix_a, matrix_b, matrix_c]
-        expected_matrix_d = [[58, 64],
-                             [139, 154]]
-        actual_matrix_d = mat.multiply_n_matrices(matrices)
-        self.assertEqual(expected_matrix_d, actual_matrix_d)
-
-        matrices = [mat.get_identity_matrix_with_dimension(2),
-                    mat.get_identity_matrix_with_dimension(2),
-                    mat.get_identity_matrix_with_dimension(3)]
-        with self.assertRaises(Exception):
-            mat.multiply_n_matrices(matrices)
-
     def test_find_optimal_matrix_chain_order(self):
         matrix_a0 = mat.get_default_matrix_with_dimension(5, 5)
         matrix_a1 = mat.get_default_matrix_with_dimension(5, 3)
@@ -122,6 +83,48 @@ class MatrixMultiplicationTest(UnitTestTemplate):
         s = mat.get_optimal_chain_as_string(matrix_splits, 0, 0)
         self.assertEqual('A0', s)
 
+    def test_multiply_incompatible(self):
+        matrix_a = [[1, 2, 3],
+                    [4, 5, 6]]
+        matrix_b = [[1, 2, 3],
+                    [4, 5, 6]]
+        with self.assertRaises(Exception):
+            mat.multiply_matrices(matrix_a, matrix_b)
+
+    def test_multiply_matrices(self):
+        matrix_a = [[1, 2, 3],
+                    [4, 5, 6]]
+        matrix_b = [[7, 8],
+                    [9, 10],
+                    [11, 12]]
+        expected_matrix_c = [[58, 64],
+                             [139, 154]]
+        actual_matrix_c = mat.multiply_matrices(matrix_a, matrix_b)
+        self.assertEqual(expected_matrix_c, actual_matrix_c)
+
+    def test_multiply_n_matrices(self):
+        with self.assertRaises(Exception):
+            mat.multiply_n_matrices(None)
+
+        matrix_a = [[1, 2, 3],
+                    [4, 5, 6]]
+        matrix_b = [[7, 8],
+                    [9, 10],
+                    [11, 12]]
+        matrix_c = [[1, 0],
+                    [0, 1]]
+        matrices = [matrix_a, matrix_b, matrix_c]
+        expected_matrix_d = [[58, 64],
+                             [139, 154]]
+        actual_matrix_d = mat.multiply_n_matrices(matrices)
+        self.assertEqual(expected_matrix_d, actual_matrix_d)
+
+        matrices = [mat.get_identity_matrix_with_dimension(2),
+                    mat.get_identity_matrix_with_dimension(2),
+                    mat.get_identity_matrix_with_dimension(3)]
+        with self.assertRaises(Exception):
+            mat.multiply_n_matrices(matrices)
+
     def test_multiply_n_matrices_large(self):
         matrices = [mat.get_default_matrix_with_dimension(10, 20),
                     mat.get_default_matrix_with_dimension(20, 90),
@@ -132,9 +135,25 @@ class MatrixMultiplicationTest(UnitTestTemplate):
                     mat.get_default_matrix_with_dimension(2, 100)]
 
         for i in range(100):
-            matrices += [
-                mat.get_identity_matrix_with_dimension(100)]
+            matrices += [mat.get_identity_matrix_with_dimension(100)]
 
         result_matrix = mat.multiply_n_matrices(matrices)
+        expected_matrix = mat.get_default_matrix_with_dimension(10, 100)
+        self.assertEqual(expected_matrix, result_matrix)
+
+    def test_multiply_n_matrices_optimally(self):
+        self.maxDiff = None
+        matrices = [mat.get_default_matrix_with_dimension(10, 20),
+                    mat.get_default_matrix_with_dimension(20, 90),
+                    mat.get_default_matrix_with_dimension(90, 100),
+                    mat.get_default_matrix_with_dimension(100, 2),
+                    mat.get_default_matrix_with_dimension(2, 15),
+                    mat.get_default_matrix_with_dimension(15, 2),
+                    mat.get_default_matrix_with_dimension(2, 100)]
+
+        for i in range(100):
+            matrices += [mat.get_identity_matrix_with_dimension(100)]
+
+        result_matrix = mat.multiply_n_matrices_optimally(matrices)
         expected_matrix = mat.get_default_matrix_with_dimension(10, 100)
         self.assertEqual(expected_matrix, result_matrix)

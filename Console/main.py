@@ -138,9 +138,6 @@ def test_print_optimal_parenthesize():
 
 def main():
     test_print_optimal_parenthesize()
-    # print('a', end='')
-    # print('b', end='')
-    # print('c')
 
 
 if __name__ == '__main__':

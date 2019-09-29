@@ -5,14 +5,14 @@ Find Fibonacci sequence
 """
 
 
-def fib_recursive(n):
+def fibonacci_recursive(n):
     if n == 0 or n == 1:
         return 1
     else:
-        return fib_recursive(n - 2) + fib_recursive(n - 1)
+        return fibonacci_recursive(n - 2) + fibonacci_recursive(n - 1)
 
 
-def fib_loop(n):
+def fibonacci_loop(n):
     if n == 0 or n == 1:
         return 1
 

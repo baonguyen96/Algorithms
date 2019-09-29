@@ -14,7 +14,7 @@ Maximum subarray problem: https://en.wikipedia.org/wiki/Maximum_subarray_problem
 """
 
 
-def find_max_brute_force(array):
+def find_max_sub_array_brute_force(array):
     if array is None or len(array) == 0:
         return 0, 0, 0
 
@@ -37,7 +37,7 @@ def find_max_brute_force(array):
     return low, high, global_max_sum
 
 
-def find_max_linear(array):
+def find_max_sub_array_linear(array):
     if array is None or len(array) == 0:
         return 0, 0, 0
 

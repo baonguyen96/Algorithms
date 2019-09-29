@@ -16,3 +16,19 @@ class UtilityTest(UnitTestTemplate):
         self.assertEqual(0, util.binary_search(array, -1))
         self.assertEqual(1, util.binary_search(array, 0))
         self.assertEqual(-1, util.binary_search(array, 9))
+
+    def test_is_even(self):
+        even = 2
+        self.assertTrue(util.is_even(even))
+
+        odd = 1
+        self.assertFalse(util.is_even(even))
+
+    def test_get_difference(self):
+        x = 1
+        y = 2
+        self.assertEqual(1, util.get_difference(x, y))
+
+        x = 1
+        y = -1
+        self.assertEqual(2, util.get_difference(x, y))

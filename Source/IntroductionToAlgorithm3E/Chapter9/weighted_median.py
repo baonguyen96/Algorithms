@@ -85,4 +85,3 @@ def get_weighted_median_using_select(array):
     weighted_median = get_median_using_select(values)
 
     return weighted_median
-

@@ -25,3 +25,11 @@ def binary_search(array, element):
             low = mid + 1
 
     return -1
+
+
+def is_even(n):
+    return n % 2 == 0
+
+
+def get_difference(x, y):
+    return abs(x - y)

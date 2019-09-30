@@ -92,7 +92,7 @@ def _find_closest_pair_fast_helper(points, x, y):
         min_strip_point_b = None
 
         for i in range(len(y_prime)):
-            next_range = i + 6 if (i + 6) < len(y_prime) else len(y_prime) - i - 1
+            next_range = i + 7 if (i + 7) < len(y_prime) else len(y_prime) - i - 1
             for j in range(i + 1, next_range):
                 d = find_distance_between_2_points(y_prime[i], y_prime[j])
 

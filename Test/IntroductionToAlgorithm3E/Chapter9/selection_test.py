@@ -39,13 +39,17 @@ class SelectionTest(UnitTestTemplate):
         self.assertEqual(4, x)
 
     def test_select_partition_small_list(self):
+        array = [0]
+        x = select_partition(array, 1)
+        self.assertEqual(0, x)
+
         array = [1, 2, 3, 4, 5]
         x = select_partition(array, 2)
         self.assertEqual(3, x)
 
-        array = [2, 1, 3, 5, 4, 6]
-        x = select_partition(array, 3)
-        self.assertEqual(4, x)
+        array = [5, 7, 6, 8, 9, 10]
+        x = select_partition(array, 1)
+        self.assertEqual(6, x)
 
     def test_select_brute_force_big_list(self):
         array = list(range(1001))

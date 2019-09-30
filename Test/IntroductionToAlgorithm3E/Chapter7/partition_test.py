@@ -34,6 +34,12 @@ class PartitionTest(UnitTestTemplate):
         for i in range(pv_index + 1, len(array)):
             self.assertTrue(array[i] > array[pv_index])
 
+    def test_random_partition_single(self):
+        array = [0]
+        expected_pivot = array[0]
+        pv_index = random_partition(array)
+        self.assertEqual(expected_pivot, array[pv_index])
+
     def test_random_partition_sub_list(self):
         array = list(range(1000))
         shuffle(array)

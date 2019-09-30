@@ -17,19 +17,22 @@ def find_k_elements_closest_to_median(array, k):
     if not util.is_even(k):
         k += 1
 
-    median_value, median_index = select_partition_capture_pivot(array, len(array) // 2)
-    left_most_value, left_most_index = \
-        select_partition_capture_pivot(array[:median_index], median_index - k // 2)
-    right_most_value, right_most_index = \
-        select_partition_capture_pivot(array[median_index + 1:], k // 2)
+    # lower median
+    median_index, median_value = select_partition_capture_pivot(array, len(array) // 2)
+
+    left_array = array[:median_index]
+    left_most_index, left_most_value = \
+        select_partition_capture_pivot(left_array, median_index - k // 2)
+
+    right_array = array[median_index:]
+    right_most_index, right_most_value = \
+        select_partition_capture_pivot(right_array, k // 2)
+
+    right_most_index += median_index
+    array = left_array + right_array
 
     if not util.is_even(k_org):
-        if util.get_difference(median_value, array[left_most_index]) > \
-                util.get_difference(median_value, array[right_most_index]):
-            left_most_index += 1
-            left_most_value = array[left_most_index]
-        else:
-            right_most_index -= 1
-            right_most_value = array[right_most_index]
+        right_most_index -= 1
+        right_most_value = array[right_most_index]
 
-    return array[left_most_index:median_index] + array[median_index + 1:right_most_index]
+    return array[left_most_index:median_index] + array[median_index + 1:right_most_index + 1]

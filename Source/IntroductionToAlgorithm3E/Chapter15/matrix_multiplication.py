@@ -114,6 +114,8 @@ def multiply_n_matrices_optimally(matrices):
 def _multiply_n_matrices_optimally(matrices, splits, i, j):
     if i == j:
         return matrices[i]
+    elif i + 1 == j:
+        return multiply_matrices(matrices[i], matrices[j])
     else:
         matrix_a = _multiply_n_matrices_optimally(matrices, splits, i, splits[i][j])
         matrix_b = _multiply_n_matrices_optimally(matrices, splits, splits[i][j] + 1, j)

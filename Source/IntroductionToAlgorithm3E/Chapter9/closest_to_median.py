@@ -3,7 +3,9 @@ Problem 9.3-7
 
 Describe an O(n) time algorithm that,
     given a set S of n distinct numbers and a positive integer k <= n,
-    determines the k numbers in S that are closest to the median of S
+    determines the k numbers in S that are closest to the median of S.
+    Note that the order of each elements within the result
+    does not matter, as long as those elements are the closest to k.
 """
 from IntroductionToAlgorithm3E.Chapter9.selection import select_partition_capture_pivot
 import Utitilies.utility as util
@@ -28,11 +30,11 @@ def find_k_elements_closest_to_median(array, k):
     right_most_index, right_most_value = \
         select_partition_capture_pivot(right_array, k // 2)
 
-    right_most_index += median_index
-    array = left_array + right_array
+    # right_most_index += median_index
+    # array = left_array + right_array
 
     if not util.is_even(k_org):
         right_most_index -= 1
-        right_most_value = array[right_most_index]
+        right_most_value = right_array[right_most_index]
 
-    return array[left_most_index:median_index] + array[median_index + 1:right_most_index + 1]
+    return left_array[left_most_index:median_index] + right_array[1:right_most_index + 1]

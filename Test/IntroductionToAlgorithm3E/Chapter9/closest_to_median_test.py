@@ -25,6 +25,13 @@ class ClosestToMedianTest(UnitTestTemplate):
         actual = find_k_elements_closest_to_median(array, k)
         self.assertEqual(expected, actual)
 
+        array = list(range(9))
+        shuffle(array)
+        k = 8
+        expected = [0, 1, 2, 3, 5, 6, 7, 8]
+        actual = find_k_elements_closest_to_median(array, k)
+        self.assertEqual(set(expected), set(actual))
+
     def test_find_k_elements_closest_to_median_odd_k(self):
         array = list(range(10))
         k = 1
@@ -36,6 +43,12 @@ class ClosestToMedianTest(UnitTestTemplate):
         k = 3
         expected = [3, 4, 6]
         actual = find_k_elements_closest_to_median(array, k)
+        self.assertEqual(set(expected), set(actual))
+
+        shuffle(array)
+        k = 5
+        expected = [2, 3, 4, 6, 7]
+        actual = find_k_elements_closest_to_median(array, k)
         self.assertEqual(expected, actual)
 
         array = list(range(9))
@@ -43,11 +56,3 @@ class ClosestToMedianTest(UnitTestTemplate):
         expected = [3]
         actual = find_k_elements_closest_to_median(array, k)
         self.assertEqual(expected, actual)
-
-        shuffle(array)
-        k = 8
-        expected = [0, 1, 2, 3, 5, 6, 7, 8]
-        actual = find_k_elements_closest_to_median(array, k)
-        self.assertEqual(expected, actual)
-
-

@@ -136,8 +136,20 @@ def test_print_optimal_parenthesize():
     print(s)
 
 
+def test_sub_2d():
+    array = [[1, 2, 3],
+             [4, 5, 6],
+             [7, 8, 9]]
+    print(array)
+
+    x = [r.pop(0) for r in array].pop(0)
+    print(x)
+
+    print(array)
+
+
 def main():
-    test_print_optimal_parenthesize()
+    test_sub_2d()
 
 
 if __name__ == '__main__':

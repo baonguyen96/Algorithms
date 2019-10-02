@@ -30,9 +30,6 @@ def find_k_elements_closest_to_median(array, k):
     right_most_index, right_most_value = \
         select_partition_capture_pivot(right_array, k // 2)
 
-    # right_most_index += median_index
-    # array = left_array + right_array
-
     if not util.is_even(k_org):
         right_most_index -= 1
         right_most_value = right_array[right_most_index]

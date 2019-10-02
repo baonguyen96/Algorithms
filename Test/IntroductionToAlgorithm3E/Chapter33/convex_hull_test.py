@@ -1,5 +1,3 @@
-import random
-
 from IntroductionToAlgorithm3E.Chapter33.convex_hull import find_convex_hull
 from Test.unit_test_template import UnitTestTemplate
 from Utitilies.utility import get_random_array

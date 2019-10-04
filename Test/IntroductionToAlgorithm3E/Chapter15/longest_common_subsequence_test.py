@@ -47,6 +47,13 @@ class LongestCommonSubsequenceTest(UnitTestTemplate):
         actual_lcs = lcs.find_longest_common_subsequence(x, y)
         self.assertEqual(expected_lcs, actual_lcs)
 
+    def test_find_longest_common_subsequence_multiple_int(self):
+        x = [7, 8, 9]
+        y = [8, 9, 10, 11, 12]
+        expected_lcs = [8, 9]
+        actual_lcs = lcs.find_longest_common_subsequence(x, y)
+        self.assertEqual(expected_lcs, actual_lcs)
+
     def test_find_longest_common_subsequence_performance(self):
         x = [random.randint(0, 100) for i in range(1000)]
         y = [random.randint(200, 1000) for i in range(1000)] + x + \

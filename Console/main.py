@@ -149,7 +149,10 @@ def test_sub_2d():
 
 
 def main():
-    test_sub_2d()
+    a = ['h', 'e', 'l', 'l', 'o']
+    print(a)
+    print(str(a))
+    print(''.join(a))
 
 
 if __name__ == '__main__':

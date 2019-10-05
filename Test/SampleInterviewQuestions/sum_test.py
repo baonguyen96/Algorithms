@@ -1,4 +1,4 @@
-from SampleInterviewQuestions.Novice.sum import find_sum
+from SampleInterviewQuestions.sum import find_sum
 from Test.unit_test_template import UnitTestTemplate
 
 

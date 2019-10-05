@@ -149,10 +149,9 @@ def test_sub_2d():
 
 
 def main():
-    a = ['h', 'e', 'l', 'l', 'o']
-    print(a)
-    print(str(a))
-    print(''.join(a))
+    x = [random.randint(1, 9) for i in range(1000)]
+    print(x)
+    print(''.join(x))
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-from SampleInterviewQuestions.Novice.first_recurrence import get_first_recurrence
+from SampleInterviewQuestions.first_recurrence import get_first_recurrence
 from Test.unit_test_template import UnitTestTemplate
 
 

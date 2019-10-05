@@ -1,7 +1,7 @@
 import random
 import unittest
 
-from SampleInterviewQuestions.Advanced.message_decode import get_total_decode_possibilities
+from SampleInterviewQuestions.message_decode import get_total_decode_possibilities
 from Test.unit_test_template import UnitTestTemplate
 
 

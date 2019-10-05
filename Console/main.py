@@ -149,9 +149,8 @@ def test_sub_2d():
 
 
 def main():
-    x = [random.randint(1, 9) for i in range(1000)]
-    print(x)
-    print(''.join(x))
+    a = [[], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3]]
+    print(type(a))
 
 
 if __name__ == '__main__':

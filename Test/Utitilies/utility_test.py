@@ -32,3 +32,18 @@ class UtilityTest(UnitTestTemplate):
         x = 1
         y = -1
         self.assertEqual(2, util.get_difference(x, y))
+
+    def test_get_all_binaries_for_length(self):
+        self.assertEqual([[False], [True]], util.get_all_binaries_for_length(1))
+
+        n = 3
+        expected = [[False, False, False],
+                    [False, False, True],
+                    [False, True, False],
+                    [False, True, True],
+                    [True, False, False],
+                    [True, False, True],
+                    [True, True, False],
+                    [True, True, True]]
+        actual = util.get_all_binaries_for_length(n)
+        self.assertEqual(expected, actual)

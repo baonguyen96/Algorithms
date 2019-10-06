@@ -1,3 +1,8 @@
+"""
+Find the first repeated character in a string
+"""
+
+
 def get_first_recurrence(string):
     seen = set()
 

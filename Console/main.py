@@ -5,6 +5,7 @@ import statistics
 import IntroductionToAlgorithm3E.Chapter15.matrix_multiplication as mat
 from IntroductionToAlgorithm3E.Chapter5.random_generator import get_random_number_advance
 from IntroductionToAlgorithm3E.Chapter7.partition import random_partition, partition
+from Utitilies.utility import get_all_binaries_for_length
 
 
 def get_random_number():
@@ -149,8 +150,8 @@ def test_sub_2d():
 
 
 def main():
-    a = [[], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3]]
-    print(type(a))
+    x = get_all_binaries_for_length(3)
+    print(x)
 
 
 if __name__ == '__main__':

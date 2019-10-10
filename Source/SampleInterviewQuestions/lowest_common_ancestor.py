@@ -13,7 +13,8 @@ lca(4,5) = 3
 lca(3,5) = 3
 etc.
 
-Input will be index instead
+Input will be index instead.
+Represent the tree above as array: [1, 3, 2, 4, 6, None, None, None, None, 5]
 """
 
 

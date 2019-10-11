@@ -58,7 +58,6 @@ def draw_weighted_directed_graph():
     edge_colors = ['black' if edge not in red_edges else 'red' for edge in graph.edges()]
 
     pos = nx.spring_layout(graph)
-
     node_labels = {node:node for node in graph.nodes()}
     nx.draw_networkx_labels(graph, pos, labels=node_labels)
     nx.draw_networkx_edge_labels(graph, pos, edge_labels=edge_labels)
@@ -66,5 +65,22 @@ def draw_weighted_directed_graph():
     pylab.show()
 
 
-get_simple_graph()
-# draw_weighted_directed_graph()
+def draw_negative_weight_graph():
+    graph = nx.DiGraph()
+    graph.add_edges_from([('1', '3')], weight=-2)
+    graph.add_edges_from([('3', '4')], weight=-2)
+    graph.add_edges_from([('4', '2')], weight=-1)
+    graph.add_edges_from([('2', '1')], weight=4)
+    graph.add_edges_from([('2', '3')], weight=-3)
+
+    pos = nx.spring_layout(graph)
+    node_labels = {node:node for node in graph.nodes()}
+    nx.draw_networkx_labels(graph, pos, labels=node_labels)
+    edge_labels = dict([((u, v,), d['weight'])
+                        for u, v, d in graph.edges(data=True)])
+    nx.draw_networkx_edge_labels(graph, pos, edge_labels=edge_labels)
+    nx.draw(graph, pos, node_size=1500)
+    pylab.show()
+
+
+draw_negative_weight_graph()

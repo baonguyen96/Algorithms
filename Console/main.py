@@ -2,7 +2,10 @@ import operator
 import random
 import statistics
 
+import networkx as nx
+
 import IntroductionToAlgorithm3E.Chapter15.matrix_multiplication as mat
+from IntroductionToAlgorithm3E.Chapter25.floyd_warshall import get_all_pair_shortest_paths_fw
 from IntroductionToAlgorithm3E.Chapter5.random_generator import get_random_number_advance
 from IntroductionToAlgorithm3E.Chapter7.partition import random_partition, partition
 from Utitilies.utility import get_all_binaries_for_length
@@ -149,9 +152,22 @@ def test_sub_2d():
     print(array)
 
 
+def get_fw_graph():
+    graph = nx.DiGraph()
+    graph.add_edges_from([('1', '3')], weight=-2)
+    graph.add_edges_from([('3', '4')], weight=-2)
+    graph.add_edges_from([('4', '2')], weight=-1)
+    graph.add_edges_from([('2', '1')], weight=4)
+    graph.add_edges_from([('2', '3')], weight=-3)
+
+    actual_distances, actual_paths = get_all_pair_shortest_paths_fw(graph)
+    print(actual_distances)
+    print()
+    print(actual_paths)
+
+
 def main():
-    x = get_all_binaries_for_length(3)
-    print(x)
+    get_fw_graph()
 
 
 if __name__ == '__main__':

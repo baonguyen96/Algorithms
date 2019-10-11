@@ -1,7 +1,8 @@
 """
 Problem 25.2-7
 
-Floyd-Warshall algorithm with modification to capture paths along side values
+Floyd-Warshall algorithm with modification to capture paths along side values.
+Assume no negative cycle.
 """
 
 import pandas as pd
@@ -46,3 +47,15 @@ def get_shortest_path_from_to(paths, i, j):
 
     path += ' -> ' + str(j)
     return path
+
+
+def has_negative_weight_cycle(graph):
+    distances, paths = get_all_pair_shortest_paths_fw(graph)
+    vertices = graph.nodes()
+
+    for vertex in vertices:
+        if distances.loc[vertex, vertex] < 0:
+            return True
+
+    return False
+

@@ -8,7 +8,6 @@ import IntroductionToAlgorithm3E.Chapter15.matrix_multiplication as mat
 from IntroductionToAlgorithm3E.Chapter25.floyd_warshall import get_all_pair_shortest_paths_fw
 from IntroductionToAlgorithm3E.Chapter5.random_generator import get_random_number_advance
 from IntroductionToAlgorithm3E.Chapter7.partition import random_partition, partition
-from Utitilies.utility import get_all_binaries_for_length
 
 
 def get_random_number():
@@ -167,7 +166,7 @@ def get_fw_graph():
 
 
 def main():
-    get_fw_graph()
+    print('hello world')
 
 
 if __name__ == '__main__':

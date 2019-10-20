@@ -7,7 +7,7 @@ from Test.unit_test_template import UnitTestTemplate
 
 class FloydWarshallTest(UnitTestTemplate):
     @staticmethod
-    def get_test_params():
+    def get_test_graph():
         graph = nx.DiGraph()
         graph.add_edges_from([('1', '3')], weight=-2)
         graph.add_edges_from([('3', '4')], weight=2)
@@ -30,13 +30,13 @@ class FloydWarshallTest(UnitTestTemplate):
         return graph, expected_distances, expected_paths
 
     def test_get_all_pair_shortest_paths_fw(self):
-        graph, expected_distances, expected_paths = self.get_test_params()
+        graph, expected_distances, expected_paths = self.get_test_graph()
         actual_distances, actual_paths = fw.get_all_pair_shortest_paths_fw(graph)
         self.assertTrue(expected_distances.astype(float).equals(actual_distances.astype(float)))
         self.assertTrue(expected_paths.astype(str).equals(actual_paths.astype(str)))
 
     def test_get_shortest_path_from_to(self):
-        graph, distances, paths = self.get_test_params()
+        graph, distances, paths = self.get_test_graph()
 
         expected = '1 -> 3'
         actual = fw.get_shortest_path_from_to(paths, '1', '3')
@@ -51,7 +51,7 @@ class FloydWarshallTest(UnitTestTemplate):
         self.assertEqual(expected, actual)
 
     def test_has_negative_weight_cycle(self):
-        graph, distances, paths = self.get_test_params()
+        graph, distances, paths = self.get_test_graph()
 
         self.assertFalse(fw.has_negative_weight_cycle(graph))
 

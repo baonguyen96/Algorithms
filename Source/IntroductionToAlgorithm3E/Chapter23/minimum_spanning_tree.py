@@ -22,20 +22,15 @@ def get_mst_using_prim(graph):
             mst.loc[r_i, 'known'] = True
             continue
 
-        min_distance = float('inf')
-        parent_vertex = None
-
         for c_i, column in row.items():
-            if mst['p'][c_i] == r_i:
+            if mst.loc[c_i, 'p'] == r_i:
                 continue
 
-            if graph[r_i][c_i] < min_distance:
-                min_distance = graph[r_i][c_i]
-                parent_vertex = c_i
+            if graph.loc[c_i, r_i] < mst.loc[r_i, 'd']:
+                mst.loc[r_i, 'd'] = graph.loc[c_i, r_i]
+                mst.loc[r_i, 'p'] = c_i
 
         mst.loc[r_i, 'known'] = True
-        mst.loc[r_i, 'd'] = min_distance
-        mst.loc[r_i, 'p'] = parent_vertex
 
     return mst
 

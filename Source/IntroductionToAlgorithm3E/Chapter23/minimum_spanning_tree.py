@@ -16,23 +16,29 @@ def get_mst_using_prim(graph):
     for vertex in vertices:
         mst.loc[vertex] = [vertex, False, float('inf'), None]
 
-    for r_i, row in graph.iterrows():
-        if r_i == mst['v'].iloc[0]:
-            mst.loc[r_i, 'd'] = 0.0
-            mst.loc[r_i, 'known'] = True
+    for from_vertex, row in graph.iterrows():
+        if from_vertex == mst['v'].iloc[0]:
+            mst.loc[from_vertex, 'd'] = 0.0
+            mst.loc[from_vertex, 'known'] = True
             continue
 
-        for c_i, column in row.items():
-            if mst.loc[c_i, 'p'] == r_i:
+        for to_vertex, column in row.items():
+            if mst.loc[to_vertex, 'p'] == from_vertex:
                 continue
 
-            if graph.loc[c_i, r_i] < mst.loc[r_i, 'd']:
-                mst.loc[r_i, 'd'] = graph.loc[c_i, r_i]
-                mst.loc[r_i, 'p'] = c_i
+            if graph.loc[to_vertex, from_vertex] < mst.loc[from_vertex, 'd']:
+                mst.loc[from_vertex, 'd'] = graph.loc[to_vertex, from_vertex]
+                mst.loc[from_vertex, 'p'] = to_vertex
 
-        mst.loc[r_i, 'known'] = True
+        mst.loc[from_vertex, 'known'] = True
 
-    return mst
+    edges = []
+
+    for vertex, row in mst.iterrows():
+        if mst.loc[vertex, 'p'] is not None:
+            edges += [(mst.loc[vertex, 'p'], mst.loc[vertex, 'v'])]
+
+    return mst, edges
 
 
 def get_mst_using_kruskal(graph):

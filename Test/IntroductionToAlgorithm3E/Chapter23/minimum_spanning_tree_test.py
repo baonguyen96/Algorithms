@@ -20,7 +20,7 @@ class MinimumSpanningTreeTest(UnitTestTemplate):
         vertices = ['v1', 'v2', 'v3', 'v4', 'v5', 'v6', 'v7']
         graph = pd.DataFrame(graph_data, columns=vertices, index=vertices)
 
-        mst_data = [
+        prim_data = [
             ['v1', True, 0.0, None],
             ['v2', True, 2.0, 'v1'],
             ['v3', True, 2.0, 'v4'],
@@ -29,18 +29,40 @@ class MinimumSpanningTreeTest(UnitTestTemplate):
             ['v6', True, 1.0, 'v7'],
             ['v7', True, 4.0, 'v4']
         ]
-        mst_df = pd.DataFrame(mst_data, columns=['v', 'known', 'd', 'p'], index=vertices)
+        mst_prim = pd.DataFrame(prim_data, columns=['v', 'known', 'd', 'p'], index=vertices)
 
-        return graph, mst_df
+        kruskal_data = [
+            ['v1', True, 0.0, None],
+            ['v2', True, 2.0, 'v1'],
+            ['v3', True, 2.0, 'v4'],
+            ['v4', True, 1.0, 'v1'],
+            ['v5', True, 6.0, 'v7'],
+            ['v6', True, 1.0, 'v7'],
+            ['v7', True, 4.0, 'v4']
+        ]
+        mst_kruskal = pd.DataFrame(prim_data, columns=['v', 'known', 'd', 'p'], index=vertices)
+
+        edges = [('v1', 'v2'),
+                 ('v1', 'v4'),
+                 ('v4', 'v3'),
+                 ('v4', 'v7'),
+                 ('v7', 'v5'),
+                 ('v7', 'v6')]
+
+        return graph, mst_prim, mst_kruskal, edges
 
     def test_get_mst_using_prim(self):
-        graph, expected_mst = MinimumSpanningTreeTest.get_test_graph()
-        actual_mst = mst.get_mst_using_prim(graph)
-        # print(actual_mst)
-        self.assertTrue(expected_mst.equals(actual_mst))
+        graph, mst_prim, mst_kruskal, edges = MinimumSpanningTreeTest.get_test_graph()
+        actual_mst, actual_edges = mst.get_mst_using_prim(graph)
+        print(actual_mst)
+        print(actual_edges)
+        self.assertTrue(mst_prim.equals(actual_mst))
+        self.assertEqual(set(edges), set(actual_edges))
 
     def test_get_mst_using_kruskal(self):
-        graph, expected_mst = MinimumSpanningTreeTest.get_test_graph()
-        actual_mst = mst.get_mst_using_kruskal(graph)
-        # print(actual_mst)
-        self.assertEqual(expected_mst, actual_mst)
+        graph, mst_prim, mst_kruskal, edges = MinimumSpanningTreeTest.get_test_graph()
+        actual_mst, actual_edges = mst.get_mst_using_kruskal(graph)
+        print(actual_mst)
+        print(actual_edges)
+        self.assertTrue(mst_kruskal.equals(actual_mst))
+        self.assertEqual(set(edges), set(actual_edges))

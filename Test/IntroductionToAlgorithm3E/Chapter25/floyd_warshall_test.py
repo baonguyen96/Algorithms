@@ -52,7 +52,6 @@ class FloydWarshallTest(UnitTestTemplate):
 
     def test_has_negative_weight_cycle(self):
         graph, distances, paths = self.get_test_graph()
-
         self.assertFalse(fw.has_negative_weight_cycle(graph))
 
         graph['3']['4']['weight'] = -2

@@ -25,27 +25,28 @@ def get_all_pair_shortest_paths_fw(graph):
         distances.loc[from_vertex, to_vertex] = graph[from_vertex][to_vertex]['weight']
         paths.loc[from_vertex, to_vertex] = from_vertex
 
-    for k in vertices:
-        for i in vertices:
-            for j in vertices:
-                if distances.loc[i, j] > distances.loc[i, k] + distances.loc[k, j]:
-                    distances.loc[i, j] = distances.loc[i, k] + distances.loc[k, j]
-                    paths.loc[i, j] = k
+    for mid in vertices:
+        for src in vertices:
+            for dst in vertices:
+                new_distance = distances.loc[src, mid] + distances.loc[mid, dst]
+                if distances.loc[src, dst] > new_distance:
+                    distances.loc[src, dst] = new_distance
+                    paths.loc[src, dst] = mid
 
     return distances, paths
 
 
-def get_shortest_path_from_to(paths, i, j):
-    start = str(i)
+def get_shortest_path_from_to(paths, source, destination):
+    start = str(source)
     path = start
-    next_hop = paths.loc[i, j]
+    next_hop = paths.loc[source, destination]
 
     while next_hop != start:
         path += ' -> ' + str(next_hop)
         start = next_hop
-        next_hop = paths.loc[start, j]
+        next_hop = paths.loc[start, destination]
 
-    path += ' -> ' + str(j)
+    path += ' -> ' + str(destination)
     return path
 
 
@@ -58,4 +59,3 @@ def has_negative_weight_cycle(graph):
             return True
 
     return False
-

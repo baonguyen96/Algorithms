@@ -47,3 +47,12 @@ class UtilityTest(UnitTestTemplate):
                     [True, True, True]]
         actual = util.get_all_binaries_for_length(n)
         self.assertEqual(expected, actual)
+
+    def test_are_edges_equal(self):
+        expected = [(1, 2), (2, 3), (4, 1)]
+        actual = [(2, 3), (1, 4), (2, 1)]
+        self.assertTrue(util.are_edges_equal(expected, actual))
+
+        expected = [(1, 2), (2, 3), (4, 1)]
+        actual = [(2, 3), (1, 4), (2, 1), (0, 0)]
+        self.assertFalse(util.are_edges_equal(expected, actual))

@@ -54,3 +54,24 @@ def get_all_binaries_for_length(length):
                 count = 0
 
     return bits
+
+
+def are_edges_equal(expected, actual):
+    if len(expected) != len(actual):
+        return False
+
+    for expected_edge in expected:
+        trial = 0
+
+        for actual_edge in actual:
+            trial += 1
+
+            if (expected_edge[0] == actual_edge[0] and expected_edge[1] == actual_edge[1]) or \
+                    (expected_edge[0] == actual_edge[1] and expected_edge[1] == actual_edge[0]):
+                break
+            elif trial < len(actual):
+                continue
+            else:
+                return False
+
+    return True

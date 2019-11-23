@@ -47,7 +47,7 @@ def get_mst_using_kruskal(graph):
     p_queue = []
     vertex_count = graph.shape[1]
     known_vertices = DisjointSet()
-    mst = []
+    edges = []
 
     for from_vertex_index in range(vertex_count):
         for to_vertex_index in range(from_vertex_index + 1, vertex_count):
@@ -65,7 +65,7 @@ def get_mst_using_kruskal(graph):
         to_set = known_vertices.find(to_vertex)
 
         if from_set != to_set:
-            mst += [(from_vertex, to_vertex)]
+            edges += [(from_vertex, to_vertex)]
             known_vertices.union(from_set, to_set)
 
-    return mst
+    return edges

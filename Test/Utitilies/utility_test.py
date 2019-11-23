@@ -1,5 +1,6 @@
-import Source.Utitilies.utility as util
+
 from Test.unit_test_template import UnitTestTemplate
+import Utitilies.utility as util
 
 
 class UtilityTest(UnitTestTemplate):

@@ -1,3 +1,4 @@
+pytest
 anytree
 pandas
 cycler==0.10.0

@@ -9,4 +9,4 @@ class UnitTestTemplate(unittest.TestCase):
 
     def tearDown(self):
         elapsed = time.time() - self.start
-        print('\n{} ({}s)\n'.format(self.id(), round(elapsed, 2)))
+        print('\n{} ({}s)\n'.format(self.id(), round(elapsed, 5)))

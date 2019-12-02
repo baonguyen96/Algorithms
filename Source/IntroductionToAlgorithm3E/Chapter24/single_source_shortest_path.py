@@ -54,11 +54,11 @@ def get_shortest_paths_using_bellman_ford(graph, from_vertex):
             from_node = edge[0]
             to_node = edge[1]
 
-            d = distances.loc[from_vertex, to_vertex] + graph[from_vertex][to_vertex]['weight']
+            d = distances.loc[from_node, to_node] + graph[from_node][to_node]['weight']
 
-            if distances.loc[from_vertex, to_vertex] > d:
-                distances.loc[from_vertex, to_vertex] = d
-                paths.loc[from_vertex, to_vertex] = str(from_vertex)
+            if distances.loc[from_node, to_node] > d:
+                distances.loc[from_node, to_node] = d
+                paths.loc[from_node, to_node] = str(from_vertex)
 
     return distances, paths
 

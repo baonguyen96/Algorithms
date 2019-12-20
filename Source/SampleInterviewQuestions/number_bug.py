@@ -8,24 +8,20 @@ Given the numbers that the program needs to sort and the mapping (i.e. the shuff
 def sort_with_mappings(numbers, mapping):
     mapping = [str(i) for i in mapping]
     numbers = [str(i) for i in numbers]
-
-    original_numbers = set()
     dictionary = {}
 
     for number in numbers:
         original = get_original_number(number, mapping)
-        original_numbers.add(original)
 
         if original in dictionary.keys():
             dictionary[original] += [number]
         else:
             dictionary[original] = [number]
 
-    original_numbers = sorted(original_numbers)
     sorted_list = []
 
-    for number in original_numbers:
-        sorted_list += dictionary[number]
+    for key in sorted(dictionary.keys()):
+        sorted_list += dictionary[key]
 
     return [int(i) for i in sorted_list]
 

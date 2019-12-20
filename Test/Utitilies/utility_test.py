@@ -23,7 +23,7 @@ class UtilityTest(UnitTestTemplate):
         self.assertTrue(util.is_even(even))
 
         odd = 1
-        self.assertFalse(util.is_even(even))
+        self.assertFalse(util.is_even(odd))
 
     def test_get_difference(self):
         x = 1

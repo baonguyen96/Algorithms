@@ -19,3 +19,5 @@ Currently the unit tests **only** work from the IDE due to incorrect linker in C
 2. UTD CodeBurners' programming contests
 
 3. Collections of popular interview questions
+
+4. [HackerRank](https://www.hackerrank.com/challenges/counting-valleys/problem)

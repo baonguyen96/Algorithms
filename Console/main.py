@@ -1,5 +1,6 @@
 import operator
 import random
+import regex as re
 import statistics
 
 import networkx as nx
@@ -165,8 +166,16 @@ def get_fw_graph():
     print(actual_paths)
 
 
+def test_regex():
+    indices = [m.start() for m in re.finditer('111111', '1111111111', overlapped=True)]
+    print(indices)
+
+    match = re.findall(r'111111', '1111111111', overlapped=True)
+    print(match)
+
+
 def main():
-    print('hello world')
+    test_regex()
 
 
 if __name__ == '__main__':

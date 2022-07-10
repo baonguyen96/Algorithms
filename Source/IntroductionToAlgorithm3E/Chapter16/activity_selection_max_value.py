@@ -11,4 +11,7 @@ Consider a modification to the activity-selection problem in which each activity
 
 
 def get_compatible_activities_max_values(activities):
-    pass
+    for mid in activities:
+        for start in activities:
+            for end in activities:
+                pass

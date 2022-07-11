@@ -1,16 +1,14 @@
 # Algorithms
 
+
 ## Introduction
 
 This repository contains questions about algorithm designs and optimizations, along with my attemps to solve them.
 
 Requirements/recommendations:
-- [Python 3 (prepferably 3.7)](https://www.python.org/downloads/release)
+- [Python 3 (prepferably 3.7 or above)](https://www.python.org/downloads/release)
 - [Pycharm](https://www.jetbrains.com/pycharm/download/)
 
-## Note
-
-Currently the unit tests **only** work from the IDE due to incorrect linker in CLI. Fix will be release shortly.
 
 ## Sources
 

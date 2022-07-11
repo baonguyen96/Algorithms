@@ -7,8 +7,8 @@ Describe an O(n) time algorithm that,
     Note that the order of each elements within the result
     does not matter, as long as those elements are the closest to k.
 """
-from introduction_to_algorithm_3e.chapter9.selection import select_partition_capture_pivot
-import utilities.utility as util
+from src.introduction_to_algorithm_3e.chapter9.selection import select_partition_capture_pivot
+import src.utilities.utility as util
 
 
 def find_k_elements_closest_to_median(array, k):

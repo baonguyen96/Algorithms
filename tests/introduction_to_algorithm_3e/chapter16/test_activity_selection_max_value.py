@@ -1,7 +1,10 @@
+import unittest
+
 from src.introduction_to_algorithm_3e.chapter16.activity_selection_max_value import get_compatible_activities_max_values
 from tests.unit_test_template import UnitTestTemplate
 
 
+@unittest.skip('comments_for_skipping_unit_tests')
 class ActivitySelectionMaxValueTest(UnitTestTemplate):
     def test_get_compatible_activities_max_values(self):
         activities = [[1, 1, 4],

@@ -8,7 +8,7 @@ For weighted median, assume that weight is positive
 import math
 import operator
 
-from introduction_to_algorithm_3e.chapter9.selection import select_partition
+from src.introduction_to_algorithm_3e.chapter9.selection import select_partition
 
 
 def get_median_using_sort(array):

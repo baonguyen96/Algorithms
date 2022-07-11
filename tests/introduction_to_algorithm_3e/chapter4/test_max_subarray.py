@@ -1,4 +1,4 @@
-import src.src.introduction_to_algorithm_3e.chapter4.max_subarray as ms
+import src.introduction_to_algorithm_3e.chapter4.max_subarray as ms
 from src.utilities.utility import get_random_array
 from tests.unit_test_template import UnitTestTemplate
 

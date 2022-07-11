@@ -1,5 +1,5 @@
 """
-Write a program what, given int n, sums all whole number in [1..n] inclusive,
+Write a program that, given int n, sums all whole number in [1..n] inclusive,
 except for those that are divisible by 5 and 7
 """
 

@@ -3,7 +3,7 @@ Selection problem:
     Input: A set A of n (distinct) numbers and an integer i , with 1 <= i <= n.
     Output: The element x in A that is larger than exactly i - 1 other elements of A.
 """
-from introduction_to_algorithm_3e.chapter7.partition import random_partition, partition
+from src.introduction_to_algorithm_3e.chapter7.partition import random_partition
 
 
 def select_brute_force(array, i):

@@ -1,4 +1,4 @@
-import src.src.introduction_to_algorithm_3e.chapter2.inversion_count as ic
+import src.introduction_to_algorithm_3e.chapter2.inversion_count as ic
 from src.utilities.utility import get_random_array
 from tests.unit_test_template import UnitTestTemplate
 

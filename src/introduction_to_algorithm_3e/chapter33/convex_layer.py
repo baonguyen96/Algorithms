@@ -9,7 +9,7 @@ is undefined otherwise.
 """
 import copy
 
-from introduction_to_algorithm_3e.chapter33.convex_hull import find_convex_hull
+from src.introduction_to_algorithm_3e.chapter33.convex_hull import find_convex_hull
 
 
 def find_convex_layers(points):

@@ -8,7 +8,7 @@ should return carac.
 """
 import copy
 
-from introduction_to_algorithm_3e.chapter15.longest_common_subsequence import find_longest_common_subsequence
+from src.introduction_to_algorithm_3e.chapter15.longest_common_subsequence import find_longest_common_subsequence
 
 
 def find_longest_palindrome(string):

@@ -11,4 +11,4 @@ class SumTest(UnitTestTemplate):
         self.assertEqual(139, find_sum(n))
 
         n = 7
-        self.assertEqual(19, find_sum(n))
+        self.assertEqual(16, find_sum(n))

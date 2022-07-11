@@ -6,7 +6,7 @@ Show how to implement the incremental method for computing the convex hull
 """
 import operator
 
-from introduction_to_algorithm_3e.chapter33.euclidean_geometry \
+from src.introduction_to_algorithm_3e.chapter33.euclidean_geometry \
     import find_distance_between_2_points, find_angle_counter_clockwise
 
 

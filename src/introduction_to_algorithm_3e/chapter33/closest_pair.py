@@ -3,7 +3,7 @@ Find closest pair of points in O(nlogn) time
 """
 import operator
 
-from introduction_to_algorithm_3e.chapter33.euclidean_geometry import is_same_point, find_distance_between_2_points
+from src.introduction_to_algorithm_3e.chapter33.euclidean_geometry import is_same_point, find_distance_between_2_points
 
 
 def find_closest_pair_brute_force(points):

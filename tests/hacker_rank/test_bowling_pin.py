@@ -1,7 +1,10 @@
+from unittest import skip
+
 from src.hacker_rank.bowling_pin import is_winning
 from tests.unit_test_template import UnitTestTemplate
 
 
+@skip('WIP')
 class BowlingPinTest(UnitTestTemplate):
     def test_is_winning_win_1(self):
         pins = 'XIIX'

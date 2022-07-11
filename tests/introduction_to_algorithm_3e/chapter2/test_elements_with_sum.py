@@ -1,4 +1,4 @@
-import src.src.introduction_to_algorithm_3e.chapter2.elements_with_sum as ews
+import src.introduction_to_algorithm_3e.chapter2.elements_with_sum as ews
 from src.utilities.utility import get_random_array
 from tests.unit_test_template import UnitTestTemplate
 

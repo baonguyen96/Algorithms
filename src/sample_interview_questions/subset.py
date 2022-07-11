@@ -6,7 +6,7 @@ Find all subsets in a set with distinct elements (powerset) O(2^n) time
 Then find all subsets who sum is a given number.
 Assume all positive number and no duplicated.
 """
-from utilities.utility import get_all_binaries_for_length
+from src.utilities.utility import get_all_binaries_for_length
 
 
 def get_all_subsets(array):

@@ -1,6 +1,6 @@
 from src.introduction_to_algorithm_3e.chapter33.convex_hull import find_convex_hull
 from tests.unit_test_template import UnitTestTemplate
-from utilities.utility import get_random_array
+from src.utilities.utility import get_random_array
 
 
 class ConvexHullTest(UnitTestTemplate):

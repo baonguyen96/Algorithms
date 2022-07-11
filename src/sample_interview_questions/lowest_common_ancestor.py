@@ -18,7 +18,7 @@ Represent the tree above as array: [1, 3, 2, 4, 6, None, None, None, None, 5]
 """
 
 
-from utilities.utility import is_even
+from src.utilities.utility import is_even
 
 
 def get_lowest_common_ancestor(tree, i1, i2):

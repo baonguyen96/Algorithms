@@ -2,7 +2,7 @@ import pandas as pd
 
 import src.introduction_to_algorithm_3e.chapter23.minimum_spanning_tree as mst
 from tests.unit_test_template import UnitTestTemplate
-from utilities.utility import are_edges_equal
+from src.utilities.utility import are_edges_equal
 
 
 class MinimumSpanningTreeTest(UnitTestTemplate):

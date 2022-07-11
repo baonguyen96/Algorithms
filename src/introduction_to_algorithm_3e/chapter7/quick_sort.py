@@ -1,4 +1,4 @@
-from introduction_to_algorithm_3e.chapter7.partition import partition, random_partition
+from src.introduction_to_algorithm_3e.chapter7.partition import partition, random_partition
 
 
 def quick_sort(array):

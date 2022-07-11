@@ -1,4 +1,4 @@
-import src.src.introduction_to_algorithm_3e.chapter4.monge_array as ma
+import src.introduction_to_algorithm_3e.chapter4.monge_array as ma
 from tests.unit_test_template import UnitTestTemplate
 
 

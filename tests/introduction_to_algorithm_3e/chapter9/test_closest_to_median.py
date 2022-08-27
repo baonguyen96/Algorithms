@@ -49,8 +49,7 @@ class ClosestToMedianTest(UnitTestTemplate):
         k = 5
         expected = [2, 3, 4, 6, 7]
         actual = find_k_elements_closest_to_median(array, k)
-        sorted(actual)
-        self.assertEqual(expected, actual)
+        self.assertEqual(set(expected), set(actual))
 
         array = list(range(9))
         k = 1

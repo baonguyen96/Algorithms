@@ -3,11 +3,12 @@ anytree==2.8.0
 pandas==1.4.3
 cycler==0.11.0
 decorator==5.1.1
-kiwisolver==1.4.3
-matplotlib==3.5.2
-networkx==2.8.4
-numpy==1.23.1
+kiwisolver==1.4.4
+matplotlib==3.5.3
+networkx==2.8.6
+numpy==1.23.2
 pyparsing==3.0.9
 python-dateutil==2.8.2
 six==1.16.0
 disjoint-set==0.7.3
+regex==2022.8.17

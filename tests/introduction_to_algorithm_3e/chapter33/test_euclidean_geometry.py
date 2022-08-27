@@ -8,41 +8,41 @@ from tests.unit_test_template import UnitTestTemplate
 class EuclideanGeometryTest(UnitTestTemplate):
     def test_find_angle_counter_clockwise_lines(self):
         angle = find_angle_counter_clockwise([1, 0], [0, 0], [1, 0])
-        self.assertEquals(0, angle)
+        self.assertEqual(0, angle)
 
         angle = find_angle_counter_clockwise([1, 0], [0, 0], [-1, 0])
-        self.assertEquals(180, angle)
+        self.assertEqual(180, angle)
 
     def test_find_angle_counter_clockwise_square(self):
         angle = find_angle_counter_clockwise([-1, 0], [0, 0], [0, 1])
-        self.assertEquals(270, angle)
+        self.assertEqual(270, angle)
 
         angle = find_angle_counter_clockwise([-1, 0], [0, 0], [0, -1])
-        self.assertEquals(90, angle)
+        self.assertEqual(90, angle)
 
     def test_find_angle_counter_clockwise_45(self):
         angle = find_angle_counter_clockwise([-1, 0], [0, 0], [-1, 1])
-        self.assertEquals(315, angle)
+        self.assertEqual(315, angle)
 
         angle = find_angle_counter_clockwise([1, 0], [0, 0], [1, 1])
-        self.assertEquals(45, angle)
+        self.assertEqual(45, angle)
 
     def test_find_distance_between_2_points_line(self):
         distance = find_distance_between_2_points([0, 0], [1, 0])
-        self.assertEquals(1, distance)
+        self.assertEqual(1, distance)
 
         distance = find_distance_between_2_points([-1, 0], [1, 0])
-        self.assertEquals(2, distance)
+        self.assertEqual(2, distance)
 
     def test_find_distance_between_2_points_angle(self):
         distance = find_distance_between_2_points([0, 0], [0, 0])
-        self.assertEquals(math.sqrt(0), distance)
+        self.assertEqual(math.sqrt(0), distance)
 
         distance = find_distance_between_2_points([1, 0], [0, 0])
-        self.assertEquals(math.sqrt(1), distance)
+        self.assertEqual(math.sqrt(1), distance)
 
         distance = find_distance_between_2_points([1, 1], [0, 0])
-        self.assertEquals(math.sqrt(2), distance)
+        self.assertEqual(math.sqrt(2), distance)
 
     def test_is_same_point_true(self):
         point_a = [0, 0]

@@ -89,3 +89,4 @@ fabric.properties
 *.pyc
 !/console/grid.edgelist
 /console/grid.edgelist
+/.coverage

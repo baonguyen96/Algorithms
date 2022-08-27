@@ -6,7 +6,7 @@
 This repository contains questions about algorithm designs and optimizations, along with my attemps to solve them.
 
 Requirements/recommendations:
-- [Python 3 (prepferably 3.7 or above)](https://www.python.org/downloads/release)
+- [Python 3 (prepferably 3.8 or above)](https://www.python.org/downloads/release)
 - [Pycharm](https://www.jetbrains.com/pycharm/download/)
 
 

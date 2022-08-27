@@ -9,7 +9,7 @@ class ConvexLayerTest(UnitTestTemplate):
         actual_cl = find_convex_layers(points)
         expected_cl = [[[0, 0], [3, 0], [3, 3], [0, 3]],
                        [[1, 1], [2, 1], [2, 2]]]
-        self.assertEquals(expected_cl, actual_cl)
+        self.assertEqual(expected_cl, actual_cl)
 
     def test_find_convex_layers_big(self):
         expected_layers = []
@@ -25,4 +25,4 @@ class ConvexLayerTest(UnitTestTemplate):
             points += layer
 
         actual_cl = find_convex_layers(points)
-        self.assertEquals(expected_layers, actual_cl)
+        self.assertEqual(expected_layers, actual_cl)

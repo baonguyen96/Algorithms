@@ -64,7 +64,7 @@ def get_shortest_paths_using_bellman_ford(graph, from_vertex):
 
 
 def get_shortest_path(paths, source, destination):
-    if paths.loc[0, destination] == destination:
+    if paths.iloc[0][destination] == destination:
         return str(source)
     else:
-        return get_shortest_path(paths, source, paths.loc[0, destination]) + ' -> ' + str(destination)
+        return get_shortest_path(paths, source, paths.iloc[0][destination]) + ' -> ' + str(destination)

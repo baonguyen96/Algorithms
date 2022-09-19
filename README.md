@@ -1,5 +1,6 @@
 # Algorithms
 
+[![Python application](https://github.com/baonguyen96/Algorithms/actions/workflows/pythonapp.yml/badge.svg)](https://github.com/baonguyen96/Algorithms/actions/workflows/pythonapp.yml)
 
 ## Introduction
 
